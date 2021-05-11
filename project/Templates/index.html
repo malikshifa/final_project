@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>Anomalies Detector | Free precision farming apps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="description" content="Monitor your fields remotely and make reliable agricultural decisions with help from artificial intelligence. For free.">
+    <meta name="Keywords" content="precision agriculture, agricultural decisions">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="icon" type="image/png" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/crops-1-690992.png" >
+    <link rel="icon" type="image/png" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/crops-1-690992.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://onesoil.ai/img/opengraph/Opengraph-en.png">
+    <style type="text/css">
+      .c-review__text:before {
+          content: '“';
+      }
+
+      .c-review__text:after {
+          content: '”';
+      }
+
+    </style>
+    <noscript>
+      <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-TDQCHFC" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'http://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TDQCHFC');
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDQCHFC" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <a href="https://map.onesoil.ai/2018" target="_blank">
+      <div class="o-banner" id="banner">
+        <div class="o-banner__content"><img class="o-banner__icon" src="" alt=""></div>
+    </a>
+    <div class="l-wrapper">
+      <div class="header" id="header">
+        <div class="header__wrapper">
+          <div class="header__logo">
+              <a href="index.html" style="display:flex;">
+                  <img src="{% static 'img/crops.png' %}" style="margin-left:-45px;padding-right:8px;">
+                  <h3>Anomalies Detector</h3>
+              </a>
+          </div>
+            <!--cm-->
+          <div class="header__menu c-navigation">
+              <a class="c-navigation__link" href="applications.html" title="The Apps" target="_self">The Apps</a>
+              <a class="c-navigation__link" href="devices.html" title="Devices" target="_self">Devices</a>
+              <a class="c-navigation__link" href="technologies.html" title="Technology" target="_self">Technology</a>
+              <a class="c-navigation__link" href="https://b2b.onesoil.ai/" title="For Businesses" target="_blank">For Businesses</a>
+              <a class="c-navigation__link" href="team.html" title="Team" target="_self">Team</a>
+              <a class="c-navigation__link" href="https://help.onesoil.ai/" title="Support" target="_blank">Support</a>
+              <a class="c-navigation__link" href="https://blog.onesoil.ai/en/?utm_source=website" title="Blog" target="_blank">Blog</a>
+          </div>
+          <div class="header__login">
+              <a class="button" href="{% url 'logins' %}"  data-event="">
+                  <img src="https://onesoil.ai/img/icons/user-icon.svg" alt="">
+                  <span>Sign in</span>
+              </a>
+          </div>
+          <div class="header__icon js-menu-toggle">
+            <div class="o-burger-icon">
+              <div class="o-burger-icon__open">
+                  <svg width="36" height="36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <defs>
+                          <path d="M7.5 9h21a1.5 1.5 0 0 1 0 3h-21a1.5 1.5 0 0 1 0-3zm0 7h21a1.5 1.5 0 0 1 0 3h-21a1.5 1.5 0 0 1 0-3zm0 7h16a1.5 1.5 0 0 1 0 3h-16a1.5 1.5 0 0 1 0-3z" id="a"/>
+                      </defs>
+                      <g fill="none" fill-rule="evenodd">
+                          <mask id="b" fill="#fff">
+                              <use xlink:href="#a"/>
+                          </mask>
+                          <use fill="#27AE60" fill-rule="nonzero" xlink:href="#a"/>
+                          <g mask="url(#b)" fill="#27AE60" fill-rule="nonzero">
+                              <path d="M0 0h50v50H0z"/>
+                          </g>
+                      </g>
+                  </svg>
+              </div>
+              <div class="o-burger-icon__close">
+                  <img src="https://onesoil.ai/img/icons/icon-menu--close.svg" alt=""></div>
+            </div>
+          </div>
+        </div>
+        <div class="l-mobile-menu">
+          <div class="l-mobile-menu__top c-navigation c-navigation--mobile">
+              <a class="c-navigation__link -is-active" href="index.html" title="About" target="">About</a>
+              <a class="c-navigation__link" href="applications.html" title="The Apps" target="">The Apps</a>
+              <a class="c-navigation__link" href="devices.html" title="Devices" target="">Devices</a>
+              <a class="c-navigation__link" href="technologies.html" title="Technology" target="">Technology</a>
+              <a class="c-navigation__link" href="https://b2b.onesoil.ai/" title="For Businesses" target="_blank">For Businesses</a>
+              <a class="c-navigation__link" href="team.html" title="Team" target="">Team</a>
+              <a class="c-navigation__link" href="https://help.onesoil.ai/" title="Support" target="_blank">Support</a>
+              <a class="c-navigation__link" href="https://blog.onesoil.ai/en/?utm_source=website" title="Blog" target="_blank">Blog</a>
+          </div>
+          <div class="l-mobile-menu__bottom c-apps c-apps--margin-top u-separator-left c-apps--horizontal">
+            <div class="c-apps__block"><span class="c-apps__title u-mobile-hidden">Open in the browser</span>
+                <a class="button button--fullwidth" href="https://app.onesoil.ai/?utm_source=onesoilwebsite&amp;utm_medium=header&amp;utm_content=en" target="_blank" data-event="">
+                    <img src="https://onesoil.ai/img/icons/user-icon.svg" alt="">
+                    <span>Sign in</span>
+                </a>
+            </div>
+            <div class="c-apps__block">
+                <span class="c-apps__title u-mobile-hidden">Anomalies Detector for mobile devices</span>
+              <div class="footer__stores c-apps__container--white">
+                  <a class="footer__store o-icon o-icon--center o-icon--store o-icon--vertical" href="https://play.google.com/store/apps/details?id=io.onesoil.scouting&amp;referrer=utm_source=website&amp;utm_medium=main_page&amp;anid=admob" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover">
+                    <div class="o-icon__column">
+                        <img src="https://onesoil.ai/img/icons/android-app--hover.svg" alt="">
+                    </div>
+                    <div class="o-icon__column">
+                        <img src="https://onesoil.ai/img/icons/android-app-title--hover.svg" alt="">
+                        <span>Download</span>
+                    </div>
+                  </div>
+                  <div class="o-icon__state o-icon__state--normal">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app.svg" alt=""></div>
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app-title.svg" alt="">
+                        <span>Download</span>
+                    </div>
+                  </div>
+                  </a>
+                  <a class="footer__store o-icon o-icon--center o-icon--store o-icon--vertical" href="https://apps.apple.com/app/apple-store/id1458134040?mt=8" target="_blank">
+                  <div class="o-icon__state o-icon__state--normal">
+                    <div class="o-icon__column">
+                        <img src="https://onesoil.ai/img/icons/apple-app.svg" alt="">
+                    </div>
+                    <div class="o-icon__column">
+                        <img src="https://onesoil.ai/img/icons/apple-app-title.svg" alt="">
+                        <span>Download</span>
+                    </div>
+                  </div>
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="u-mobile-center">
+        <div class="o-float-element o-float-element--left o-float-element--top u-mobile-hidden u-tablet-hidden">
+          <div class="o-float-element__wrapper" style="min-width: 1460px;">
+              <img src="https://onesoil.ai/img/bitmaps/bubbles.png" srcset="/img/bitmaps/bubbles@2x.png 2x" alt="">
+          </div>
+        </div>
+        <div class="l-content u-padding-top-medium">
+          <div class="l-content__wrapperd">
+            <div class="c-content-block c-content-block--narrow c-content-block--left u-padding-right-medium">
+              <h1 class="t3 js-scroll--fade-up">Free apps for precision farming</h1>
+              <p class="p2 js-scroll--fade-up">Monitor your crops remotely, find problem spots in your fields, add notes, apply variable fertilizer rates, create seeding prescriptions, and monitor crop rotation. All for free with Anomalies Detector.</p>
+            </div>
+            <div class="c-content-block c-content-block--narrow c-content-block--left u-padding-right-medium u-mobile-hidden">
+              <form class="c-subscribe" id="signup">
+                <input class="o-input" placeholder="Enter your e-mail address" type="email" required>
+                <button class="button button--fullheight">Sign up</button>
+              </form>
+              <p class="extra-small">Already have an account? <a class="link-black" href="https://app.onesoil.ai/?utm_source=website&amp;utm_medium=main_page" target="_blank">Sign in</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="o-float-element o-float-element--right o-float-element--half" style="overflow: visible;">
+          <div class="o-float-element__wrapper">
+              <img class="u-tablet-scale" src="https://onesoil.ai/img/bitmaps/guy-index.png" srcset="/img/bitmaps/guy-index@2x.png 2x" alt="">
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="l-content u-padding-top-small u-padding-bottom-none">
+          <div class="l-content__wrapper l-content__wrapper--tripple js-scroll">
+            <div class="l-content__column js-scroll__item js-scroll--delay">
+              <div class="c-fact">
+                <div class="c-fact__icon"><img src="https://onesoil.ai/img/icons/fact_02.svg" alt=""></div>
+                <div class="c-fact__content">
+                  <div class="c-fact__title">Add fields easily</div>
+                  <div class="c-fact__description">We’ve delineated field borders in 57 countries worldwide</div>
+                </div>
+              </div>
+            </div>
+            <div class="l-content__column js-scroll__item js-scroll--delay">
+              <div class="c-fact">
+                <div class="c-fact__icon"><img src="https://onesoil.ai/img/icons/fact_01.svg" alt=""></div>
+                <div class="c-fact__content">
+                  <div class="c-fact__title">Get data processed fast</div>
+                  <div class="c-fact__description">See your field’s current NDVI index in just seconds</div>
+                </div>
+              </div>
+            </div>
+            <div class="l-content__column js-scroll__item js-scroll--delay">
+              <div class="c-fact">
+                <div class="c-fact__icon"><img src="https://onesoil.ai/img/icons/fact_03.svg" alt=""></div>
+                <div class="c-fact__content">
+                  <div class="c-fact__title">Web and mobile apps</div>
+                  <div class="c-fact__description">Enjoy the freedom to work from anywhere, online or offline</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="l-content u-padding-top-medium u-tablet-center">
+          <div class="l-content__wrapper l-content__wrapper--screen">
+            <div class="l-content__column l-content__column--centered">
+              <div class="o-tag o-tag--small">The Apps</div>
+              <h3 class="t4">Monitor fields from anywhere</h3>
+              <p class="p2">Monitor crops, add notes, check the weather forecast, and calculate nitrogen, phosphorus, and potassium fertilizer rates with Anomalies Detector’s free apps. All you need is internet access — we take care of the rest.</p>
+            </div>
+            <div class="l-content__column js-scroll js-scroll--fade-left">
+              <div class="o-screens o-screens--float"><img class="o-screens__desktop o-screens__desktop--shadow" src="https://onesoil.ai/img/bitmaps/screen-desktop_en.png" srcset="/img/bitmaps/screen-desktop_en@2x.png 2x" alt=""><img class="o-screens__mobile o-screens__mobile--shadow" src="https://onesoil.ai/img/bitmaps/screen-mobile_en.png" srcset="/img/bitmaps/screen-mobile_en@2x.png 2x" alt=""><img class="o-screens__float" src="https://onesoil.ai/img/bitmaps/guy_02.png" srcset="/img/bitmaps/guy_02@2x.png 2x" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="l-content u-padding-top-none">
+          <div class="l-content__wrapper l-content__wrapper--left">
+            <div class="l-content__column">
+              <div class="c-features-block c-features-block--full">
+                <div class="c-features-block__wrapper">
+                  <div class="c-features-block__item">
+                    <div class="c-features-block__icon"><a href="applications.html#onesoil-fields"><img class="u-mobile-hidden u-tablet-hidden" src="https://onesoil.ai/img/icons/icon-fields.svg" alt=""><img class="u-desktop-hidden" src="https://onesoil.ai/img/icons/icon-fields--black.svg" alt=""></a></div>
+                    <div class="c-features-block__content"><a href="applications.html#onesoil-fields">
+                        <div class="c-features-block__title">Fields</div>
+                        <p class="c-features-block__text">Find your field on the map: we’ll define its boundaries and show you how your crops are doing</p></a></div>
+                  </div>
+                  <div class="c-features-block__item">
+                    <div class="c-features-block__icon"><a href="applications.html#onesoil-notes"><img class="u-mobile-hidden u-tablet-hidden" src="https://onesoil.ai/img/icons/icon-notes.svg" alt=""><img class="u-desktop-hidden" src="https://onesoil.ai/img/icons/icon-notes--black.svg" alt=""></a></div>
+                    <div class="c-features-block__content"><a href="applications.html#onesoil-notes">
+                        <div class="c-features-block__title">Scouting and notes</div>
+                        <p class="c-features-block__text">Monitor your plants and add notes for yourself or to share</p></a></div>
+                  </div>
+                  <div class="c-features-block__item">
+                    <div class="c-features-block__icon"><a href="applications.html#onesoil-fertilizers"><img class="u-mobile-hidden u-tablet-hidden" src="https://onesoil.ai/img/icons/icon-fertilizers.svg" alt=""><img class="u-desktop-hidden" src="https://onesoil.ai/img/icons/icon-fertilizers--black.svg" alt=""></a></div>
+                    <div class="c-features-block__content"><a href="applications.html#onesoil-fertilizers">
+                        <div class="c-features-block__title">Fertilizers</div>
+                        <p class="c-features-block__text">Determine variable rates to apply nitrogen, phosphorus, and potassium</p></a></div>
+                  </div>
+                  <div class="c-features-block__item">
+                    <div class="c-features-block__icon"><a href="applications.html#onesoil-weather"><img class="u-mobile-hidden u-tablet-hidden" src="https://onesoil.ai/img/icons/icon-weather.svg" alt=""><img class="u-desktop-hidden" src="https://onesoil.ai/img/icons/icon-weather--black.svg" alt=""></a></div>
+                    <div class="c-features-block__content"><a href="applications.html#onesoil-weather">
+                        <div class="c-features-block__title">Weather</div>
+                        <p class="c-features-block__text">Check the 5-day weather forecast for your field</p></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="l-content__column">
+              <div class="c-apps c-apps--margin-top u-separator-left c-apps--horizontal">
+                <div class="c-apps__block"><span class="c-apps__title u-desktop-hidden">Open in the browser</span><a class="button button--fullwidth" href="https://app.onesoil.ai/?utm_source=onesoilwebsite&amp;utm_medium=main_page&amp;utm_content=en" target="_blank" data-event=""><img src="https://onesoil.ai/img/icons/user-icon.svg" alt=""><span>Sign in</span></a>
+                </div>
+                <div class="c-apps__block"><span class="c-apps__title u-mobile-hidden">Anomalies Detector for mobile devices</span>
+                  <div class="footer__stores"><a class="footer__store o-icon o-icon--center o-icon--store o-icon--vertical" href="https://play.google.com/store/apps/details?id=io.onesoil.scouting&amp;referrer=utm_source=website&amp;utm_medium=main_page&amp;anid=admob" target="_blank">
+                      <div class="o-icon__state o-icon__state--hover">
+                        <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app--hover.svg" alt=""></div>
+                        <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app-title--hover.svg" alt=""><span>Download</span></div>
+                      </div>
+                      <div class="o-icon__state o-icon__state--normal">
+                        <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app.svg" alt=""></div>
+                        <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app-title.svg" alt=""><span>Download</span></div>
+                      </div></a><a class="footer__store o-icon o-icon--center o-icon--store o-icon--vertical" href="https://apps.apple.com/app/apple-store/id1458134040?mt=8" target="_blank">
+                      <div class="o-icon__state o-icon__state--hover">
+                        <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app--hover.svg" alt=""></div>
+                        <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app-title--hover.svg" alt=""><span>Download</span></div>
+                      </div>
+                      <div class="o-icon__state o-icon__state--normal">
+                        <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app.svg" alt=""></div>
+                        <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app-title.svg" alt=""><span>Download</span></div>
+                      </div></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="l-full">
+          <div class="l-full__column -is-inverse">
+            <div class="l-full__back"><img src="https://onesoil.ai/img/bitmaps/background-field_01.jpg" srcset="/img/bitmaps/background-field_01@2x.jpg 2x" alt=""></div>
+            <div class="l-full__wrapper">
+              <div class="c-content-block">
+                <div class="o-tag o-tag--small">Devices</div>
+              </div>
+              <div class="c-content-block c-content-block--subwide">
+                <h1 class="t3 js-scroll--fade-up">Collect field data</h1>
+              </div>
+              <div class="c-content-block c-content-block--subwide">
+                <div class="p2 js-scroll--fade-up">Monitor plants and agricultural equipment operators' work right from your home or office. It’s easy with  Anomalies Detector devices</div>
+              </div>
+            </div>
+          </div>
+          <div class="l-full__column">
+            <div class="l-full__wrapper"><a class="o-device-link js-scroll--fade-up" href="devices.html#sensor-promo"><img class="o-device-link__image" src="https://onesoil.ai/img/bitmaps/sensor_02.png" srcset="/img/bitmaps/sensor_02@2x.png 2x" style="width: 776px;" alt="">
+                <div class="o-device-link__content"><span class="o-device-link__title">Weather sensors</span>
+                  <p class="o-device-link__text">Measure soil moisture and air humidity, soil and air temperatures, and determine the luminance for a specific part of your field with Anomalies Detector weather sensors</p>
+                </div></a><a class="o-device-link js-scroll--fade-up" href="devices.html#modem-promo"><img class="o-device-link__image" src="https://onesoil.ai/img/bitmaps/modem_01.png" srcset="/img/bitmaps/modem_01@2x.png 2x" alt="">
+                <div class="o-device-link__content"><span class="o-device-link__title">Modems</span>
+                  <p class="o-device-link__text">Transfer data easily between agricultural equipment and the  Anomalies Detector web app using a mobile network</p>
+                </div></a></div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="l-content u-padding-top-medium js-mobile-scroll">
+          <div class="l-content__wrapper l-content__wrapper--tripple js-mobile-scroll-content js-scroll">
+            <div class="l-content__column js-scroll__item js-scroll--delay">
+              <div class="c-review">
+                <div class="c-review__head">
+                  <div class="c-review__emotion"><img src="https://onesoil.ai/img/emotions_01.png" srcset="/img/emotions_01@2x.png 2x" alt=""></div>
+                  <div class="c-review__avatar"><img src="https://onesoil.ai/img/temp/review-avatar_01.png" srcset="/img/temp/review-avatar_01@2x.png 2x" alt=""></div>
+                  <div class="c-review__info">
+                    <div class="c-review__name">Ivan Pavliuk</div>
+                    <div class="c-review__role">Logistician at an agricultural holding, Ukraine</div>
+                  </div>
+                </div>
+                <div class="c-review__text">Anomalies Detector’s latest version offers amazing features and an intuitive design. Thank you, Anomalies Detector!</div>
+              </div>
+            </div>
+            <div class="l-content__column js-scroll__item js-scroll--delay">
+              <div class="c-review">
+                <div class="c-review__head">
+                  <div class="c-review__avatar"><img src="https://onesoil.ai/img/temp/review-avatar_02.png" srcset="/img/temp/review-avatar_02@2x.png 2x" alt=""></div>
+                  <div class="c-review__info">
+                    <div class="c-review__name">Sílvio Martins
+                      <div class="c-review__role">Head of an agricultural holding, Portugal</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-review__text">Anomalies Detector helps me monitor my farm’s fields and spot any problem areas on time.</div>
+              </div>
+            </div>
+            <div class="l-content__column u-tablet-hidden js-scroll__item js-scroll--delay">
+              <div class="c-review">
+                <div class="c-review__head">
+                  <div class="c-review__emotion c-review__emotion--right"><img src="https://onesoil.ai/img/emotions_02.png" srcset="/img/emotions_02@2x.png 2x" alt=""></div>
+                  <div class="c-review__avatar"><img src="https://onesoil.ai/img/temp/review-avatar_03.png" srcset="/img/temp/review-avatar_03@2x.png 2x" alt=""></div>
+                  <div class="c-review__info">
+                    <div class="c-review__name">Agustin Serrano
+                      <div class="c-review__role">Telecommunication Engineer, Spain</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-review__text">With Anomalies Detector, I monitor my family farm’s olive groves right from home.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="l-content u-padding-top-small u-padding-bottom-none">
+          <div class="l-content__wrapper">
+            <div class="c-clients">
+              <div class="c-clients__item"><a class="o-icon" href="https://www.bbc.com/russian/av/media-44960142" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/client-logo_01--hovered.svg" alt=""></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/temp/client-logo_01.svg" alt=""></div></a></div>
+              <div class="c-clients__item"><a class="o-icon" href="https://www.youtube.com/watch?v=5N-SQ1H7p4E" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/client-logo_02--hovered.svg" alt=""></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/temp/client-logo_02.svg" alt=""></div></a></div>
+              <div class="c-clients__item"><a class="o-icon" href="https://www.ft.com/content/10da5832-ce4b-11e7-9dbb-291a884dd8c6" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/client-logo_03--hovered.svg" alt=""></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/temp/client-logo_03.svg" alt=""></div></a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="footer">
+        <div class="footer__wrapper">
+          <div class="footer__row">
+            <div class="footer__column footer__callback"><span class="semibold">Contact Us</span><a class="o-link o-link--medium" href="mailto:hello@onesoil.ai">hello@Anomalies Detector.ai</a></div>
+            <div class="footer__column c-big-navigation footer__menu">
+              <div class="c-big-navigation__column"><span class="c-big-navigation__title">Company</span><a class="c-big-navigation__link" href="technologies.html">Technology</a><a class="c-big-navigation__link" href="team.html">Team</a><a class="c-big-navigation__link" href="https://www.notion.so/onesoil/OneSoil-f09d7bfdf42b4ac49429703e2453f5d3">Careers</a><a class="c-big-navigation__link" href="https://b2b.onesoil.ai/" target="_blank">For Businesses</a></div>
+              <div class="c-big-navigation__column"><span class="c-big-navigation__title">Devices</span><a class="c-big-navigation__link" href="devices.html#sensor-promo">Weather sensor</a><a class="c-big-navigation__link" href="devices.html#modem-promo">Modem</a></div>
+              <div class="c-big-navigation__column"><span class="c-big-navigation__title">The Apps</span><a class="c-big-navigation__link" href="applications.html#onesoil-fields">Fields</a><a class="c-big-navigation__link" href="applications.html#onesoil-notes">Scouting and notes</a><a class="c-big-navigation__link" href="applications.html#onesoil-fertilizers">Fertilizers</a><a class="c-big-navigation__link" href="applications.html#onesoil-weather">Weather</a></div>
+            </div>
+            <div class="footer__column footer__apps"><a class="button button--fullwidth" href="https://app.onesoil.ai/?utm_source=onesoilwebsite&amp;utm_medium=footer&amp;utm_content=en" target="_blank" data-event=""><img src="https://onesoil.ai/img/icons/user-icon.svg" alt=""><span>Sign in</span></a><br><br><span>Anomalies Detector for mobile devices</span>
+              <div class="footer__stores"><a class="footer__store o-icon o-icon--center o-icon--store o-icon--vertical" href="https://play.google.com/store/apps/details?id=io.onesoil.scouting&amp;referrer=utm_source=website&amp;utm_medium=footer&amp;anid=admob" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app--hover.svg"></div>
+                    <div class="o-icon__column u-tablet-hidden"><img src="https://onesoil.ai/img/icons/android-app-title--hover.svg"><span>Download</span></div>
+                  </div>
+                  <div class="o-icon__state o-icon__state--normal">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app.svg"></div>
+                    <div class="o-icon__column u-tablet-hidden"><img src="https://onesoil.ai/img/icons/android-app-title.svg"><span>Download</span></div>
+                  </div></a><a class="footer__store o-icon o-icon--center o-icon--store o-icon--vertical" href="https://apps.apple.com/app/apple-store/id1458134040?mt=8" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app--hover.svg"></div>
+                    <div class="o-icon__column u-tablet-hidden"><img src="https://onesoil.ai/img/icons/apple-app-title--hover.svg"><span>Download</span></div>
+                  </div>
+                  <div class="o-icon__state o-icon__state--normal">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app.svg"></div>
+                    <div class="o-icon__column u-tablet-hidden"><img src="https://onesoil.ai/img/icons/apple-app-title.svg"><span>Download</span></div>
+                  </div></a></div>
+            </div>
+          </div>
+          <div class="footer__row">
+            <div class="footer__column c-socials">
+              <div class="c-socials__row"><a class="o-icon o-icon--inline o-icon--colored" href="https://blog.onesoil.ai/en/?utm_source=website" target="_blank"><svg width="26" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M24.438 4.722L21.325 1.61l.681-.686a2.202 2.202 0 0 1 3.125 3.102l-.693.697zm-.61.615l-6.43 6.475-4.412 1.164 1.288-4.265 6.44-6.487 3.114 3.113zm-5.289-4.073l-1.692 1.769A18.32 18.32 0 0 0 15.666 3H7.334c-1.777 0-2.565.16-3.321.565a3.453 3.453 0 0 0-1.448 1.448C2.16 5.769 2 6.557 2 8.334v2.332c0 1.777.16 2.565.565 3.321.337.63.818 1.111 1.448 1.448.415.222.785.35 1.314.438L7 16.15v.734L7.816 16h1.43L9 16.644 11.351 16h4.315c1.777 0 2.565-.16 3.321-.565a3.453 3.453 0 0 0 1.448-1.448c.378-.706.543-1.44.563-2.98L23 8.916v1.75c0 2.246-.278 3.288-.801 4.266a5.452 5.452 0 0 1-2.268 2.268c-.978.523-2.02.801-4.265.801H8.692L5 22v-4.154a5.934 5.934 0 0 1-1.93-.647A5.452 5.452 0 0 1 .8 14.93c-.522-.977-.8-2.02-.8-4.264V8.334C0 6.09.278 5.047.801 4.07A5.452 5.452 0 0 1 3.07 1.801C4.047 1.278 5.09 1 7.334 1h8.332c1.277 0 2.165.09 2.873.264zM6 7h5v2H6V7zm0 3h5v2H6v-2z" fill="#707070"/></svg><span class="o-icon__title semibold"> Anomalies Detector Blog</span></a></div>
+              <div class="c-socials__row"><a class="o-icon" href="https://twitter.com/onesoilplatform" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/twitter-icon--hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/twitter-icon.svg"></div></a><a class="o-icon" href="https://www.instagram.com/onesoil.ai/" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/instagram-icon--hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/instagram-icon.svg"></div></a><a class="o-icon" href="https://www.facebook.com/onesoilplatform/" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/facebook-icon--hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/facebook-icon.svg"></div></a><a class="o-icon" href="https://www.linkedin.com/company/onesoil/" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/linked-hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/linked-def.svg"></div></a><a class="o-icon" href="https://www.youtube.com/channel/UCRZaRW_DZs_d3XTxg9axRIA" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/youtube-icon--hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/youtube-icon.svg"></div></a></div>
+            </div>
+            <div class="footer__column footer__credits">
+              <div><a class="o-icon o-icon--inline o-rightby" href="https://right.by/" target="_blank"><svg width="23" height="19" xmlns="http://www.w3.org/2000/svg"><path d="M7.642 8.808l1.664-2.56-1.664-2.56H3.603v5.12h4.039zm2.538 2.753l3.507 5.397-3 2.042-4.227-6.504H3.603v5.47H0V0h9.573l4.06 6.248-3.453 5.313zm6.295-2.866l3-2.042L23 12.078l-3.525 5.425-3-2.042 2.198-3.383-2.198-3.383z" fill="#231F20"/></svg><span class="o-icon__title">Design</span></a></div>
+              <div class="o-lang-switcher js-lang-switcher"><span class="o-lang-switcher__link o-icon o-icon--inline" href="index.html"><img src="https://onesoil.ai/img/icons/langs/english.svg"><span class="o-icon__title">English</span></span>
+                <div class="o-lang-switcher__wrapper">
+                  <div class="o-lang-switcher__container">
+                    <div class="o-lang-switcher__item active"><a class="o-icon o-icon--inline" href="index.html"><span class="o-icon__title">English</span><img src="https://onesoil.ai/img/icons/langs/english.svg"></a></div>
+                    <div class="o-lang-switcher__item"><a class="o-icon o-icon--inline" href="https://onesoil.ai/ru/"><span class="o-icon__title"> Русский</span><img src="https://onesoil.ai/img/icons/langs/russian.svg"></a></div>
+                    <div class="o-lang-switcher__item"><a class="o-icon o-icon--inline" href="https://onesoil.ai/fr/"><span class="o-icon__title"> Français</span><img src="https://onesoil.ai/img/icons/langs/france.svg"></a></div>
+                    <div class="o-lang-switcher__item"><a class="o-icon o-icon--inline" href="https://onesoil.ai/es/"><span class="o-icon__title"> Español</span><img src="https://onesoil.ai/img/icons/langs/spain.svg"></a></div>
+                    <div class="o-lang-switcher__item"><a class="o-icon o-icon--inline" href="https://onesoil.ai/pt/"><span class="o-icon__title"> Português</span><img src="https://onesoil.ai/img/icons/langs/brazil.svg"></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer__column footer__copyright"><span class="u-vertical-center"><span class="muted">© 2018-2021 Anomalies Detector</span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer footer--mobile">
+        <div class="footer__wrapper">
+          <div class="footer__row">
+            <div class="footer__column footer__apps"><a class="button button--fullwidth" href="https://app.onesoil.ai/?utm_source=onesoilwebsite&amp;utm_medium=footer&amp;utm_content=en" target="_blank" data-event=""><img src="https://onesoil.ai/img/icons/user-icon.svg" alt=""><span>Sign in</span></a><br><br>
+              <div class="footer__stores"><a class="footer__store o-icon o-icon--center o-icon--store o-icon--vertical" href="https://play.google.com/store/apps/details?id=io.onesoil.scouting&amp;referrer=utm_source=website&amp;utm_medium=main_page&amp;anid=admob" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app--hover.svg" alt=""></div>
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app-title--hover.svg" alt=""><span>Download</span></div>
+                  </div>
+                  <div class="o-icon__state o-icon__state--normal">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app.svg" alt=""></div>
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/android-app-title.svg" alt=""><span>Download</span></div>
+                  </div></a><a class="footer__store o-icon o-icon--center o-icon--store o-icon--vertical" href="https://apps.apple.com/app/apple-store/id1458134040?mt=8" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app--hover.svg" alt=""></div>
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app-title--hover.svg" alt=""><span>Download</span></div>
+                  </div>
+                  <div class="o-icon__state o-icon__state--normal">
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app.svg" alt=""></div>
+                    <div class="o-icon__column"><img src="https://onesoil.ai/img/icons/apple-app-title.svg" alt=""><span>Download</span></div>
+                  </div></a></div>
+            </div>
+          </div>
+          <div class="footer__row u-mobile-center">
+            <div class="footer__column"><span class="semibold">Contact Us</span><a class="o-link o-link--medium" href="mailto:hello@onesoil.ai">hello@Anomalies Detector.ai</a></div>
+          </div>
+          <div class="footer__row">
+            <div class="footer__column c-socials">
+              <div class="c-socials__row"><a class="o-icon o-icon--inline o-icon--colored" href="https://blog.onesoil.ai/en/?utm_source1=website"><svg width="26" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M24.438 4.722L21.325 1.61l.681-.686a2.202 2.202 0 0 1 3.125 3.102l-.693.697zm-.61.615l-6.43 6.475-4.412 1.164 1.288-4.265 6.44-6.487 3.114 3.113zm-5.289-4.073l-1.692 1.769A18.32 18.32 0 0 0 15.666 3H7.334c-1.777 0-2.565.16-3.321.565a3.453 3.453 0 0 0-1.448 1.448C2.16 5.769 2 6.557 2 8.334v2.332c0 1.777.16 2.565.565 3.321.337.63.818 1.111 1.448 1.448.415.222.785.35 1.314.438L7 16.15v.734L7.816 16h1.43L9 16.644 11.351 16h4.315c1.777 0 2.565-.16 3.321-.565a3.453 3.453 0 0 0 1.448-1.448c.378-.706.543-1.44.563-2.98L23 8.916v1.75c0 2.246-.278 3.288-.801 4.266a5.452 5.452 0 0 1-2.268 2.268c-.978.523-2.02.801-4.265.801H8.692L5 22v-4.154a5.934 5.934 0 0 1-1.93-.647A5.452 5.452 0 0 1 .8 14.93c-.522-.977-.8-2.02-.8-4.264V8.334C0 6.09.278 5.047.801 4.07A5.452 5.452 0 0 1 3.07 1.801C4.047 1.278 5.09 1 7.334 1h8.332c1.277 0 2.165.09 2.873.264zM6 7h5v2H6V7zm0 3h5v2H6v-2z" fill="#707070"/></svg><span class="o-icon__title semibold">Blog</span></a></div>
+              <div class="c-socials__row"><a class="o-icon" href="https://twitter.com/onesoilplatform" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/twitter-icon--hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/twitter-icon.svg"></div></a><a class="o-icon" href="https://www.instagram.com/onesoil.ai/" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/instagram-icon--hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/instagram-icon.svg"></div></a><a class="o-icon" href="https://www.facebook.com/onesoilplatform/" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/facebook-icon--hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/facebook-icon.svg"></div></a><a class="o-icon" href="https://www.linkedin.com/company/onesoil/" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/linked-hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/linked-def.svg"></div></a><a class="o-icon" href="https://www.youtube.com/channel/UCRZaRW_DZs_d3XTxg9axRIA" target="_blank">
+                  <div class="o-icon__state o-icon__state--hover"><img src="https://onesoil.ai/img/icons/youtube-icon--hover.svg"></div>
+                  <div class="o-icon__state o-icon__state--normal"><img src="https://onesoil.ai/img/icons/youtube-icon.svg"></div></a></div>
+            </div>
+            <div class="footer__column footer__credits">
+              <div><a class="o-icon o-icon--inline o-rightby" href="https://right.by/" target="_blank"><svg width="23" height="19" xmlns="http://www.w3.org/2000/svg"><path d="M7.642 8.808l1.664-2.56-1.664-2.56H3.603v5.12h4.039zm2.538 2.753l3.507 5.397-3 2.042-4.227-6.504H3.603v5.47H0V0h9.573l4.06 6.248-3.453 5.313zm6.295-2.866l3-2.042L23 12.078l-3.525 5.425-3-2.042 2.198-3.383-2.198-3.383z" fill="#231F20"/></svg><span class="o-icon__title">Design</span></a></div>
+              <div>
+                <div class="o-lang-switcher js-lang-switcher">
+                  <div class="o-lang-switcher__before"><img src="https://onesoil.ai/img/icons/langs/english.svg"></div>
+                  <select class="o-lang-switcher__select">
+                    <option class="o-lang-switcher__option" selected value="/en/">English</option>
+                    <option class="o-lang-switcher__option" value="/ru/"> Русский</option>
+                    <option class="o-lang-switcher__option" value="/fr/"> Français</option>
+                    <option class="o-lang-switcher__option" value="/es/"> Español</option>
+                    <option class="o-lang-switcher__option" value="/pt/"> Português</option>
+                  </select>
+                  <div class="o-lang-switcher__after"><img src="https://onesoil.ai/img/icons/arrow-down.svg"></div>
+                </div>
+              </div>
+              <div><span class="u-vertical-center"><span class="muted">© 2018-2021 Anomalies Detector</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true&amp;key=AIzaSyAJz6HkWKlJ9DS8e6vtBlD3Vjn2_uzBXZE"></script>
+      <script src="https://onesoil.ai/js/main.js?ver=1.0.7"></script>
+    </div>
+  </body>
+
+<!-- Mirrored from onesoil.ai/en/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Apr 2021 16:56:31 GMT -->
+</html>

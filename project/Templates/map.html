@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    {% load static %}
+    <title>Leaflet.draw Plugin</title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+    />
+</head>
+
+<style>
+    .hello-msg{
+    font-size: 18px;
+    color: black;
+    margin-right: 20px;
+  }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <!---<img src="{% static 'img/crops.png' %}">-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'homepage' %}">Dashboard</a>
+      </li>
+    </ul>
+  </div>
+
+  <span class="hello-msg">Hello, {{ request.user }}</span>
+  <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+
+</nav>
+
+    <div id="map" style="width: 100%; height: 500px">{% csrf_token %}</div>
+    <input type="submit" value="SaveShape" placeholder="Save Shape" onclick="store()" >
+    <!--<button type="submit" value="save" placeholder="save" onclick="check()" >save</button>-->
+    <button type="submit" value="showpolygon" placeholder="showpolygon" onclick="showShape()" >showpolygon</button>
+    <!--<input type="submit" id="showbtn" value="showShape" placeholder="show Shape" onclick="showbtn()">
+    <button class="btn btn-primary form-control"  id="save" onclick="showbtn()">Submit</button>-->
+
+    <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js">
+    </script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js">
+    </script>
+
+    <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+    <script>
+    var shapes = [];              //save coordinates of shape
+    var type;                       // save type of the shape drawn by user
+
+//var valsss = JSON.parse("{{data}}");
+//console.log(valsss)
+
+var map = L.map('map').setView([-41.2858, 174.78682], 14);
+mapLink =
+    '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; ' + mapLink + ' Contributors',
+    maxZoom: 18,
+    }).addTo(map);
+
+var LeafIcon = L.Icon.extend({
+    options: {
+        shadowUrl:
+            'http://leafletjs.com/docs/images/leaf-shadow.png',
+        iconSize:     [38, 95],
+        shadowSize:   [50, 64],
+        iconAnchor:   [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor:  [-3, -76]
+    }
+});
+
+var greenIcon = new LeafIcon({
+    iconUrl: 'http://leafletjs.com/docs/images/leaf-green.png'
+    });
+
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+var drawControl = new L.Control.Draw({
+    position: 'topright',
+    draw: {
+        polygon: {
+            shapeOptions: {
+                color: 'purple'
+            },
+            allowIntersection: false,
+            drawError: {
+                color: 'orange',
+                timeout: 1000
+            },
+            showArea: true,
+            metric: false,
+            repeatMode: true
+        },
+        polyline: {
+            shapeOptions: {
+                color: 'red'
+            },
+        },
+        rect: {
+            shapeOptions: {
+                color: 'green'
+            },
+        },
+        circle: {
+            shapeOptions: {
+                color: 'steelblue'
+            },
+        },
+        marker: {
+            icon: greenIcon
+        },
+    },
+    edit: {
+        featureGroup: drawnItems
+    }
+});
+map.addControl(drawControl);
+
+map.on('draw:created', function (e) {
+    var type = e.layerType,
+        layer = e.layer;
+
+    if (type === 'marker') {
+        layer.bindPopup('A popup!');
+    }
+
+    drawnItems.addLayer(layer);
+});
+
+//var latlngs = [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]];
+
+//var polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
+//map.fitBounds(polygon.getBounds());
+
+
+function showShape()
+{
+    var tempsss = L.geoJson({{ geo_json | safe }}).addTo(map);
+    map.fitBounds(tempsss.getBounds());
+}
+
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+map.on('draw:created', function (e) {
+
+    type = e.layerType,
+        layer = e.layer;
+
+    drawnItems.addLayer(layer);
+
+    var shapes = getShapes(drawnItems);
+
+    console.log(shapes);
+    console.log('--------------check-------------------------------');
+    console.log(type);
+
+
+
+    // Process them any way you want and save to DB
+    //...
+
+});
+var getShapes = function(drawnItems) {
+
+
+    drawnItems.eachLayer(function(layer) {
+
+        // Note: Rectangle extends Polygon. Polygon extends Polyline.
+        // Therefore, all of them are instances of Polyline
+        if (layer instanceof L.Polyline) {
+            shapes.push(layer.getLatLngs());
+        }
+
+        if (layer instanceof L.Circle) {
+            shapes.push([layer.getLatLng()])
+        }
+
+        if (layer instanceof L.Marker) {
+            shapes.push([layer.getLatLng()]);
+        }
+
+    });
+    console.log("shapes");
+    return shapes;
+
+};
+
+function store()
+{
+    console.log("check-1");
+    if(shapes != null && shapes.length != 0)
+    {
+        var stringpoint = JSON.stringify(shapes);
+
+        $.ajax({
+        type: 'POST',
+        url: "/mapdata/",
+        data: {csrfmiddlewaretoken: window.CSRF_TOKEN,
+                stringpoint: stringpoint,
+                type:type,
+                datatype:'JSON',
+                data:'JSON',
+                 },
+        success: function() {
+            console.log("Success!");
+        }
+
+        //var vals = JSON.parse(responseString)
+    });
+    }
+    else
+    {
+        alert("There is no shape drawn on the map");
+    }
+}
+
+</script>
+    <!--<script src="{% static 'js/map.js' %}"></script>-->
+</body>
+</html>
