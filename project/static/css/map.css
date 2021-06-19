@@ -1,0 +1,27 @@
+.c-review__text:before {
+    content: '“';
+}
+
+.c-review__text:after {
+    content: '”';
+}
+.dd {
+    width: 900px;
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+}
+i.fa
+{
+    display: inline-block;
+    border-radius: 90px;
+    box-shadow: 0px 0px 2px #888;
+    padding: 0.5em 0.6em;
+
+}
+
+.hello-msg{
+    font-size: 18px;
+    color: black;
+    margin-right: 20px;
+  }

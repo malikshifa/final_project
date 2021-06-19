@@ -1,32 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-{% load static %}
+<html>
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <title>Anomalies Detector | Free precision farming apps</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <meta name="description" content="Monitor your fields remotely and make reliable agricultural decisions with help from artificial intelligence. For free.">
     <meta name="Keywords" content="precision agriculture, agricultural decisions">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
     <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontastic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.default.css' %}" id="theme-stylesheet">
+
+    <link rel="icon" type="image/png" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/crops-1-690992.png" >
+    <link rel="icon" type="image/png" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/crops-1-690992.png">
     <meta property="og:url" content="">
     <meta property="og:type" content="">
     <meta property="og:title" content="">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://onesoil.ai/img/opengraph/Opengraph-en.png">
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <style>
+        .side-navbar .sidenav-header  {
+          background: #008d5c;
+          padding: 0px;
+        }
 
-    <meta name="author" content="">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-        <link rel="icon" type="image/png" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/crops-1-690992.png" >
-    <link rel="icon" type="image/png" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/crops-1-690992.png">
+     .side-navbar li a:focus, .side-navbar li a:hover, .side-navbar li a
+     {
+        color:white;
+        font-size:20px;
+        padding-left:30px;
+        border-bottom:1px solid white;
 
-    <noscript>
+     }
+
+     .leaflet-top .leaflet-control {
+        margin-top: 50px;
+    }
+
+     .side-navbar
+     {
+        background-color:#008d5c;
+     }
+
+     .side-navbar li a:focus, .side-navbar li a:hover, .side-navbar li a[aria-expanded="true"]
+     {
+        background:#cab5b53d;
+     }
+
+    nav.navbar
+    {
+        background-color:white;
+    }
+
+    h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,ss.h6 {
+      color: green;
+    }
+    .header__wrapper {
+        max-width: 1160px;
+        padding: .2rem 1.25rem .2rem;
+        height: 90px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        transition: height 160ms ease-in-out;
+    }
+    .side-navbar .sidenav-header {
+      background: #white !important;
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+    </style>
+</head>
+
+<noscript>
       <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-TDQCHFC" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <script>
@@ -36,21 +94,46 @@
       'http://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-TDQCHFC');
     </script>
-  </head>
-  <body>
+<body>
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDQCHFC" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
-    <div class="l-wrapper">
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDQCHFC" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <nav class="side-navbar">
+      <div class="side-navbar-wrapper">
+        <!-- Sidebar Header    -->
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
+          <!-- User Info-->
+          <div class="sidenav-header-inner text-center">
+            <span style="color:white">Hello</span><h2 class="h5" style="color:white">{{ request.user }}</h2>
+          </div>
+          <!-- Small Brand information, appears on minimized sidebar-->
+          <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+        </div>
+        <!-- Sidebar Navigation Menus-->
+        <div class="main-menu">
+          <ul id="side-main-menu" class="side-menu list-unstyled">
+            <li><a href="{% url 'map' %}">Add Shapes</a></li>
+            <li><a href="{% url 'getmapdata' %}">View Shapes</a></li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <div class="page">
+        <header class="header">
+        <nav class="navbar">
+          <div class="l-wrapper">
       <div class="header" id="header">
         <div class="header__wrapper">
-          <div class="header__logo"><a href="{% url 'homepage' %}" style="display:flex;"><img src="{% static 'images/crops.png' %}" style="margin-left:-45px;padding-right:8px;"><h3>Anomalies Detector</h3></a></div>
-          <div class="header__menu c-navigation"><a class="c-navigation__link" href="{% url 'homepage' %}" title="The Apps" target="_self"></a><a class="c-navigation__link" href="devices.html" title="Devices" target="_self"></a><a class="c-navigation__link" href="technologies.html" title="Technology" target="_self"></a><a class="c-navigation__link" href="https://b2b.onesoil.ai/" title="For Businesses" target="_blank"> </a><a class="c-navigation__link" href="team.html" title="Team" target="_self"></a><a class="c-navigation__link" href="https://help.onesoil.ai/" title="Support" target="_blank"></a><a class="c-navigation__link" href="https://blog.onesoil.ai/en/?utm_source=website" title="Blog" target="_blank"></a>
+          <div class="header__logo"><a href="index.html" style="display:flex;"><img src="{% static 'images/crops.png' %}" style="margin-left:-45px;padding-right:8px;"><h3>Anomalies Detector</h3></a></div>
+          <div class="header__menu c-navigation"><a class="c-navigation__link" href="index.html" title="The Apps" target="_self"></a><a class="c-navigation__link" href="devices.html" title="Devices" target="_self"></a><a class="c-navigation__link" href="technologies.html" title="Technology" target="_self"></a><a class="c-navigation__link" href="https://b2b.onesoil.ai/" title="For Businesses" target="_blank"> </a><a class="c-navigation__link" href="team.html" title="Team" target="_self"></a><a class="c-navigation__link" href="https://help.onesoil.ai/" title="Support" target="_blank"></a><a class="c-navigation__link" href="https://blog.onesoil.ai/en/?utm_source=website" title="Blog" target="_blank"></a>
           </div>
-          <div class="header__login"><a class="button" href="{% url 'logins' %}" target="_blank" data-event=""><img src="https://onesoil.ai/img/icons/user-icon.svg" alt=""><span>Sign in</span></a>
-            <a class="button" href="{% url 'signup' %}" target="_blank" data-event=""><img src="https://onesoil.ai/img/icons/user-icon.svg" alt=""><span>Sign up</span></a>
-
-            </div>
+            <span style="color:black;background-color:white"></span>
+          <div class="header__login"><a class="button" href="{% url 'homepage' %}" data-event=""><span>logout</span></a></div>
           <div class="header__icon js-menu-toggle">
             <div class="o-burger-icon">
               <div class="o-burger-icon__open"><svg width="36" height="36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M7.5 9h21a1.5 1.5 0 0 1 0 3h-21a1.5 1.5 0 0 1 0-3zm0 7h21a1.5 1.5 0 0 1 0 3h-21a1.5 1.5 0 0 1 0-3zm0 7h16a1.5 1.5 0 0 1 0 3h-16a1.5 1.5 0 0 1 0-3z" id="a"/></defs><g fill="none" fill-rule="evenodd"><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><use fill="#27AE60" fill-rule="nonzero" xlink:href="#a"/><g mask="url(#b)" fill="#27AE60" fill-rule="nonzero"><path d="M0 0h50v50H0z"/></g></g></svg></div>
@@ -83,162 +166,20 @@
             </div>
           </div>
         </div>
-      </div>
-      <section class="u-mobile-center">
-        <div class="o-float-element o-float-element--left o-float-element--top u-mobile-hidden u-tablet-hidden">
-          <div class="o-float-element__wrapper" style="min-width: 1460px;"><img src="https://onesoil.ai/img/bitmaps/bubbles.png" srcset="/img/bitmaps/bubbles@2x.png 2x" alt=""></div>
-        </div>
-        <div class="l-content u-padding-top-medium">
-          <div class="l-content__wrapperd">
-            <div class="c-content-block c-content-block--narrow c-content-block--left u-padding-right-medium">
-              <h1 class="t3 js-scroll--fade-up">Free website for precision farming</h1>
-              <p class="p2 js-scroll--fade-up"> Screen your harvests distantly, discover issue spots in your fields, add notes, apply variable compost rates, make cultivating solutions, and screen crop pivot. Just for Free with Anomalies Detector.                    </p>
-            </div>
-            <div class="c-content-block c-content-block--narrow c-content-block--left u-padding-right-medium u-mobile-hidden">
-              <form class="c-subscribe" id="signup">
+        </nav>
+      </header>
+    <!--header ends-->
+     <div id="map" style="width: 100%; height: 500px;margin-top:110px">{% csrf_token %}</div>
+<div>
+    <input class="button" type="submit" value="Save Shape" style="margin:20px" placeholder="Save Shape" onclick="store()" >
+<!--<button type="submit" value="save" placeholder="save" onclick="check()" >save</button>-->
+</div>
+    <br>
+    <br>
+    <br><br>
 
-                <button class="button button--fullheight" href="{% url 'signup' %}" target="_blank">Sign up</button>
-              </form>
-              <p class="extra-small">Already have an account? <a class="link-black" href="{% url 'logins' %}" target="_blank">Sign in</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="o-float-element o-float-element--right o-float-element--half" style="overflow: visible;">
-          <div class="o-float-element__wrapper"><img class="u-tablet-scale" src="{% static 'images/first.jpeg' %}" width="120%" style="padding-right: 4rem;" srcset="/img/bitmaps/guy-index@2x.png 2x" alt=""></div>
-        </div>
-      </section>
-      <section>
-        <div class="l-content u-padding-top-small u-padding-bottom-none">
-          <div class="l-content__wrapper l-content__wrapper--tripple js-scroll">
-            <div class="l-content__column js-scroll__item js-scroll--delay">
-              <div class="c-fact">
-                <div class="c-fact__icon"><img src="{% static 'images/agronomy.png' %}"  style="height: 80%;" alt=""></div>
-                <div class="c-fact__content">
-                  <div class="c-fact__title">Add fields easily</div>
-                  <div class="c-fact__description">We’ve delineated field borders in 57 countries worldwide</div>
-                </div>
-              </div>
-            </div>
-            <div class="l-content__column js-scroll__item js-scroll--delay">
-              <div class="c-fact">
-                <div class="c-fact__icon"><img src="{% static 'images/data-processing.png' %}" style="height: 80%;"></div>
-                <div class="c-fact__content">
-                  <div class="c-fact__title">Get data processed fast</div>
-                  <div class="c-fact__description">See your field’s current NDVI index in just seconds</div>
-                </div>
-              </div>
-            </div>
-            <div class="l-content__column js-scroll__item js-scroll--delay">
-              <div class="c-fact">
-                <div class="c-fact__icon"><img src="{% static 'images/globe.png' %}" style="height: 80%;" alt=""></div>
-                <div class="c-fact__content">
-                  <div class="c-fact__title">Web apps</div>
-                  <div class="c-fact__description">Enjoy the freedom to work from anywhere, online or offline</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="l-content u-padding-top-medium u-tablet-center">
-          <div class="l-content__wrapper l-content__wrapper--screen">
-            <div class="l-content__column l-content__column--centered">
-              <div class="o-tag o-tag--small">The Apps</div>
-              <h3 class="t4">See and Control fields from anywhere</h3>
-              <p class="p2">Controll crops, add notes, see the weather forecast, and calculate nitrogen, phosphorus, and potassium fertilizer rates with Anomalies Detector web-app. All you required is internet access — we take care of the rest.</p>
-            </div>
-            <div class="l-content__column js-scroll js-scroll--fade-left">
-              <div class="o-screens o-screens--float"><img class="o-screens__desktop o-screens__desktop--shadow" src="{% static 'images/DqyAsdxV4AEtT1s.jpeg' %}" srcset="/img/bitmaps/screen-desktop_en@2x.png 2x" alt=""><img class="o-screens__mobile o-screens__mobile--shadow" src="img/mobile_dashbaorf.webp" srcset="/img/bitmaps/screen-mobile_en@2x.png 2x" alt=""><img class="o-screens__float" src="https://onesoil.ai/img/bitmaps/guy_02.png" srcset="/img/bitmaps/guy_02@2x.png 2x" alt=""></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="l-content u-padding-top-none">
-          <div class="l-content__wrapper l-content__wrapper--left">
-            <div class="l-content__column">
-              <div class="c-features-block c-features-block--full">
-                <div class="c-features-block__wrapper">
-                  <div class="c-features-block__item">
-                    <div class="c-features-block__icon"><a href="applications.html#onesoil-fields"><img class="u-mobile-hidden u-tablet-hidden" src="{% static 'images/field.png' %}" style="height: 15%; padding-left: 220px; padding-top: 5px;" alt=""><img class="u-desktop-hidden" src="https://onesoil.ai/img/icons/icon-fields--black.svg" alt=""></a></div>
-                    <div class="c-features-block__content"><a href="applications.html#onesoil-fields">
-                        <div class="c-features-block__title">Fields</div>
-                        <p class="c-features-block__text">Find your field on the map: we’ll define its boundaries and show you how your crops are doing</p></a></div>
-                  </div>
-                  <div class="c-features-block__item">
-                    <div class="c-features-block__icon"><a href="applications.html#onesoil-notes"><img class="u-mobile-hidden u-tablet-hidden" src="{% static 'images/maps-and-flags.png' %}" style="height: 15%; padding-left: 220px; padding-top: 5px;" alt=""><img class="u-desktop-hidden" src="https://onesoil.ai/img/icons/icon-notes--black.svg" alt=""></a></div>
-                    <div class="c-features-block__content"><a href="applications.html#onesoil-notes">
-                        <div class="c-features-block__title">Add and view notes</div>
-                        <p class="c-features-block__text">Monitor your plants and add notes for yourself or to share</p></a></div>
-                  </div>
-                  <div class="c-features-block__item">
-                    <div class="c-features-block__icon"><a href="applications.html#onesoil-fertilizers"><img class="u-mobile-hidden u-tablet-hidden" src="{% static 'images/fertilizer.png' %}"style="height: 15%; padding-left: 220px; padding-top: 5px;" alt=""><img class="u-desktop-hidden" src="https://onesoil.ai/img/icons/icon-fertilizers--black.svg" alt=""></a></div>
-                    <div class="c-features-block__content"><a href="applications.html#onesoil-fertilizers">
-                        <div class="c-features-block__title">Fertilizers</div>
-                        <p class="c-features-block__text">Determine variable rates to apply nitrogen, phosphorus, and potassium</p></a></div>
-                  </div>
-                  <div class="c-features-block__item">
-                    <div class="c-features-block__icon"><a href="applications.html#onesoil-weather"><img class="u-mobile-hidden u-tablet-hidden" src="{% static 'images/cloudy.png' %}"style="height: 15%; padding-left: 220px; padding-top: 5px;" alt=""><img class="u-desktop-hidden"style="height: 15%; padding-left: 220px; padding-top: 5px;" src="https://onesoil.ai/img/icons/icon-weather--black.svg" alt=""></a></div>
-                    <div class="c-features-block__content"><a href="applications.html#onesoil-weather">
-                        <div class="c-features-block__title">Weather</div>
-                        <p class="c-features-block__text">See the weather forecast for your field</p></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="l-content__column">
-              <div class="c-apps c-apps--margin-top u-separator-left c-apps--horizontal">
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="l-full">
-          <div class="l-full__column -is-inverse">
-            <div class="l-full__back"><img src="{% static 'images/farm.jpg' %}" srcset="/img/bitmaps/background-field_01@2x.jpg 2x" alt=""></div>
-            <div class="l-full__wrapper">
-              <div class="c-content-block">
-                <div class="o-tag o-tag--small">Devices</div>
-              </div>
-              <div class="c-content-block c-content-block--subwide">
-                <h1 class="t3 js-scroll--fade-up">Gather field data</h1>
-              </div>
-              <div class="c-content-block c-content-block--subwide">
-                <div class="p2 js-scroll--fade-up">Monitor plants and agricultural equipment operators' work from your home or office. It’s easy with  Anomalies Detector devices</div>
-              </div>
-            </div>
-          </div>
-          <div class="l-full__column">
-            <div class="l-full__wrapper">
-                <div class="o-device-link__content"><span class="o-device-link__title">About Us</span>
-                  <p class="o-device-link__text">We are comsitains and we have developed anomalies detector in the crops by using satellite images.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                </div></div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="l-content u-padding-top-medium js-mobile-scroll">
-          <div class="w3-content w3-display-container">
-            <img class="mySlides" src="{% static 'images/a1.jpg' %}" style="width:100%">
-            <img class="mySlides" src="{% static 'images/a2.jpg' %}" style="width:100%">
-            <img class="mySlides" src="{% static 'images/aaa.jpg' %}" style="width:100%">
-
-
-            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-          </div>
-        </div>
-        <div class="l-content u-padding-top-small u-padding-bottom-none">
-          <div class="l-content__wrapper">
-
-          </div>
-        </div>
-      </section>
-      <div class="footer" >
+    <!--footer-->
+    <div class="footer" >
         <div class="footer__wrapper dd" >
 
           <div class="footer__row">
@@ -252,7 +193,7 @@
             <div class="footer__column c-socials">
               <div class="c-socials__row">  <i class="fa fa-map-marker" aria-hidden="false"></i> &nbsp;&nbsp;&nbsp;&nbsp; Comsats University,<br>&nbsp;&nbsp;&nbsp;&nbsp; Lahore,PK </div>
               <div class="c-socials__row">  <i class="fa fa-phone" aria-hidden="false"></i> &nbsp;&nbsp;&nbsp;&nbsp; 091-091091-09 </div>
-              <div class="c-socials__row">  <i class="fa fa-envelope" aria-hidden="false"></i> &nbsp;&nbsp;&nbsp;&nbsp; <a>info@comsats.edu.pk</a></div>
+              <div class="c-socials__row">  <i class="fa fa-envelope" aria-hidden="false"></i> &nbsp;&nbsp;&nbsp;&nbsp; <a>fatima@naqvi.com</a></div>
 
             </div>
 
@@ -344,26 +285,200 @@
       <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;signed_in=true&amp;key=AIzaSyAJz6HkWKlJ9DS8e6vtBlD3Vjn2_uzBXZE"></script>
       <script src="https://onesoil.ai/js/main.js?ver=1.0.7"></script>
     </div>
+
+    <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js">
+    </script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js">
+    </script>
+
+
+    <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
     <script>
-      var slideIndex = 1;
-      showDivs(slideIndex);
 
-      function plusDivs(n) {
-        showDivs(slideIndex += n);
-      }
+    var shapes = [];              //save coordinates of shape
+    var type;                       // save type of the shape drawn by user
 
-      function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        if (n > x.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = x.length}
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
+//var valsss = JSON.parse("{{data}}");
+//console.log(valsss)
+
+var map = L.map('map').setView([-41.2858, 174.78682], 14);
+mapLink =
+    '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; ' + mapLink + ' Contributors',
+    maxZoom: 18,
+    }).addTo(map);
+
+var LeafIcon = L.Icon.extend({
+    options: {
+        shadowUrl:
+            'http://leafletjs.com/docs/images/leaf-shadow.png',
+        iconSize:     [38, 95],
+        shadowSize:   [50, 64],
+        iconAnchor:   [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor:  [-3, -76]
+    }
+});
+
+var greenIcon = new LeafIcon({
+    iconUrl: 'http://leafletjs.com/docs/images/leaf-green.png'
+    });
+
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+var drawControl = new L.Control.Draw({
+    position: 'topright',
+    draw: {
+        polygon: {
+            shapeOptions: {
+                color: 'purple'
+            },
+            allowIntersection: false,
+            drawError: {
+                color: 'orange',
+                timeout: 1000
+            },
+            showArea: true,
+            metric: false,
+            repeatMode: true
+        },
+        polyline: {
+            shapeOptions: {
+                color: 'red'
+            },
+        },
+        rect: {
+            shapeOptions: {
+                color: 'green'
+            },
+        },
+        circle: {
+            shapeOptions: {
+                color: 'steelblue'
+            },
+        },
+        marker: {
+            icon: greenIcon
+        },
+    },
+    edit: {
+        featureGroup: drawnItems
+    }
+});
+map.addControl(drawControl);
+
+map.on('draw:created', function (e) {
+    var type = e.layerType,
+        layer = e.layer;
+
+    if (type === 'marker') {
+        layer.bindPopup('A popup!');
+    }
+
+    drawnItems.addLayer(layer);
+});
+
+//var latlngs = [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]];
+
+//var polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
+//map.fitBounds(polygon.getBounds());
+
+
+function showShape()
+{
+    //console.log("showshape button");
+    //var latlngs = [[37, -109.05],[41, -109.03],[41, -102.05],[37, -102.04]];
+    //var p = {{ lsitC | safe }};
+    //console.log(p);
+    //var polygon = L.polygon(p, {color: 'red'}).addTo(map);
+    //map.fitBounds(polygon.getBounds());
+
+}
+
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+map.on('draw:created', function (e) {
+
+    type = e.layerType,
+        layer = e.layer;
+
+    drawnItems.addLayer(layer);
+
+    var shapes = getShapes(drawnItems);
+
+    console.log(shapes);
+    console.log('--------------check-------------------------------');
+    console.log(type);
+
+
+
+    // Process them any way you want and save to DB
+    //...
+
+});
+var getShapes = function(drawnItems) {
+
+
+    drawnItems.eachLayer(function(layer) {
+
+        // Note: Rectangle extends Polygon. Polygon extends Polyline.
+        // Therefore, all of them are instances of Polyline
+        if (layer instanceof L.Polyline) {
+            shapes.push(layer.getLatLngs());
         }
-        x[slideIndex-1].style.display = "block";
-      }
-      </script>
-  </body>
 
-<!-- Mirrored from onesoil.ai/en/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Apr 2021 16:56:31 GMT -->
+        if (layer instanceof L.Circle) {
+            shapes.push([layer.getLatLng()])
+        }
+
+        if (layer instanceof L.Marker) {
+            shapes.push([layer.getLatLng()]);
+        }
+
+    });
+    console.log("shapes");
+    return shapes;
+
+};
+
+
+function store()
+{
+    console.log("check-1");
+    if(shapes != null && shapes.length != 0)
+    {
+        var stringpoint = JSON.stringify(shapes);
+
+        $.ajax({
+        type: 'POST',
+        url: "/mapdata/",
+        data: {csrfmiddlewaretoken: window.CSRF_TOKEN,
+                stringpoint: stringpoint,
+                type:type,
+                datatype:'JSON',
+                data:'JSON',
+                 },
+        success: function() {
+            alert("Successfully saved shape to the database!");
+        }
+
+        //var vals = JSON.parse(responseString)
+    });
+    }
+    else
+    {
+        alert("There is no shape drawn on the map");
+    }
+}
+
+</script>
+    <!-- JavaScript files-->
+
+    <!--<script src="{% static 'js/map.js' %}"></script>-->
+</body>
 </html>

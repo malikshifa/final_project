@@ -1,14 +1,12 @@
 import pandas as pd
 
 from django.shortcuts import render, redirect
-from psycopg2.extensions import JSON
 import re
 from project.models import shape
-import json
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -23,29 +21,40 @@ def homepage(req):
     return render(req, 'index.html')
 
 
+def tempt(req):
+    return render(req, 'temp.html')
+
+
 def logins(req):
+    #if req.user.is_authenticated:
+     #   return redirect('map')
+    #else:
     if req.method == 'POST':
         username = req.POST.get('username')
+        userid = req.POST.get('username')
         password = req.POST.get('password')
 
         user = authenticate(req, username=username, password=password)
 
         if user is not None:
             login(req, user)
-            return redirect('map')
+            return redirect('mapdata')
         else:
             messages.info(req, 'Username or Password is incorrect')
 
     context = {}
     return render(req, 'new-login.html', context)
 
-
+@login_required(login_url='logins')
 def logoutUser(req):
     logout(req)
     return redirect('logins')
 
 
 def signup(req):
+    #if req.user.is_authenticated:
+    #    return redirect('map')
+    #else:
     form = CreateUserForm()
 
     if req.method == 'POST':
@@ -54,16 +63,17 @@ def signup(req):
             form.save(),
             name = form.cleaned_data.get('username')
             messages.success(req, 'Account was successfully created for ' + name)
-            redirect('login')
+            redirect('logins')
 
     context = {'form': form}
     return render(req, 'new-signup.html', context)
 
-
+@login_required(login_url='logins')
 def map(req):
     return render(req, 'map.html')
 
 
+@login_required(login_url='logins')
 def mapdata(req):
     if req.method == 'POST':
         pointsin = req.POST.get('stringpoint')
@@ -75,29 +85,89 @@ def mapdata(req):
             user=username,
         )
         print('success')
+    return redirect('mapdata')
+
+
+@login_required(login_url='logins')
+def getmapdata(req):
+    current_user = req.user
+    listB = []
+    listC = []
+    df = pd.DataFrame(list(shape.objects.filter(user=current_user.id).values()))
+    if(len(df)==0):
+        print("0 array")
+        return redirect('map')
+    types = df['shapetype'].values
+    shapes = df['point'].values
+
+    counter = 1
+
+    for item in shapes:
+        pointsss = re.findall(r"[-+]?\d*\.\d+|\d+", str(item))
+        i = 0
+
+        for item in enumerate(pointsss):
+            if (i == int(len(pointsss) - 2)):
+                listB.append([float(pointsss[i]), float(pointsss[i + 1])])
+                break
+
+            listB.append([float(pointsss[i]), float(pointsss[i + 1])])
+            i += 2
+        listC.append(listB)
+        listB = []
+
+    for item in listC:
+       print(item)
+       return render(req, 'map.html')
+    #return render(req, 'map.html', {listC: 'listC'})
+
+
+def get_coord_len(req):
+    current_user = req.user
+    df = pd.DataFrame(list(shape.objects.filter(user=current_user.id).values()))
+    print('print length:')
+    print(len(df))
     return render(req, 'map.html')
 
 
-def getmapdata(req):
-    df = pd.DataFrame(list(shape.objects.filter(shapetype='rectangle').values()))
+def single_shape(req):
+    print('dummy')
+    current_user = req.user
+    #print(current_user)
+
+    df = pd.DataFrame(list(shape.objects.filter(user=current_user.id).values()))
+    #print(df)
     types = df['shapetype'].values
+    pointsss = df['point'].values
+    #print(types)
+    #print(point)
+
 
     for item in types:
-        type=item
+        type = item
 
-    pointsss = shape.objects.get(user=username).values('point')
+
+    #pointsss = shape.objects.get(user=username).values('point')
     point = str(pointsss)
     result = re.findall(r"[-+]?\d*\.\d+|\d+", point)
-
+    
     listB = []
 
     i = 0
-    j = 0
+    j = 1
+    listC = []
+    #print(int(len(result) - 2))
+    #print("/n")
     for item in enumerate(result):
         if (i == int(len(result) - 2)):
             listB.append([result[i], result[i + 1]])
             break
         listB.append([result[i], result[i + 1]])
+        if j == 4:
+            listC.append([listB[j],listB[j-1],listB[j-2],listB[j-3]])
+            print(j)
+            print('/n')
+            print(listC)
         i += 2
         j += 1
 
@@ -116,5 +186,7 @@ def getmapdata(req):
             }
         ]
     }
-    print(geo_json)
-    return render(req, 'map.html', {'geo_json': geo_json})
+    #print(geo_json)
+    return render(req, 'map.html', {'lisB': listB})
+
+    #return render(req, 'map.html')

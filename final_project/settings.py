@@ -131,3 +131,10 @@ TEMPLATE_DIRS = [
 MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+EMAIL_BACKEND  = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'fa17-bse-164@cuilahore.edu.pk'
+EMAIL_HOST_PASSWORD = 'hayabusa500'
