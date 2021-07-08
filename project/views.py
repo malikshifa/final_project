@@ -21,8 +21,8 @@ def homepage(req):
     return render(req, 'index.html')
 
 
-def tempt(req):
-    return render(req, 'temp.html')
+# def tempt(req):
+#     return render(req, 'temp.html')
 
 
 def logins(req):
@@ -38,7 +38,7 @@ def logins(req):
 
         if user is not None:
             login(req, user)
-            return redirect('mapdata')
+            return redirect('map')
         else:
             messages.info(req, 'Username or Password is incorrect')
 
@@ -70,7 +70,7 @@ def signup(req):
 
 @login_required(login_url='logins')
 def map(req):
-    return render(req, 'map.html')
+    return render(req, 'temp.html')
 
 
 @login_required(login_url='logins')
@@ -85,7 +85,7 @@ def mapdata(req):
             user=username,
         )
         print('success')
-    return redirect('mapdata')
+    return redirect('getmapdata')
 
 
 @login_required(login_url='logins')
@@ -94,7 +94,7 @@ def getmapdata(req):
     listB = []
     listC = []
     df = pd.DataFrame(list(shape.objects.filter(user=current_user.id).values()))
-    if(len(df)==0):
+    if (len(df) == 0):
         print("0 array")
         return redirect('map')
     types = df['shapetype'].values
@@ -117,10 +117,9 @@ def getmapdata(req):
         listB = []
 
     for item in listC:
-       print(item)
-       return render(req, 'map.html')
-    #return render(req, 'map.html', {listC: 'listC'})
-
+        print(item)
+    return render(req, 'map.html')
+    # return render(req, 'map.html', {listC: 'listC'})
 
 def get_coord_len(req):
     current_user = req.user
