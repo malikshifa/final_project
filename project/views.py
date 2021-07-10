@@ -94,7 +94,7 @@ def getmapdata(req):
     listB = []
     listC = []
     df = pd.DataFrame(list(shape.objects.filter(user=current_user.id).values()))
-    if (len(df) == 0):
+    if len(df) == 0:
         print("0 array")
         return redirect('map')
     types = df['shapetype'].values
@@ -107,7 +107,7 @@ def getmapdata(req):
         i = 0
 
         for item in enumerate(pointsss):
-            if (i == int(len(pointsss) - 2)):
+            if i == int(len(pointsss) - 2):
                 listB.append([float(pointsss[i]), float(pointsss[i + 1])])
                 break
 
@@ -118,8 +118,9 @@ def getmapdata(req):
 
     for item in listC:
         print(item)
-    return render(req, 'map.html')
-    # return render(req, 'map.html', {listC: 'listC'})
+        print('/n')
+    # return render(req, 'map.html')
+    return render(req, 'map.html', {'listB': listB})
 
 def get_coord_len(req):
     current_user = req.user
